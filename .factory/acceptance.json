@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "product": "museum-art-poster",
+  "items": [
+    {
+      "id": "A-001",
+      "stage": "INTAKE",
+      "priority": "P0",
+      "description": "Only public-domain artworks can enter the studio",
+      "observableAssertion": "Every selectable and exportable artwork has isPublicDomain=true and a non-empty imageId",
+      "testMethod": "unit",
+      "viewport": "not-applicable",
+      "evidenceRequired": "service normalization tests",
+      "status": "pending"
+    },
+    {
+      "id": "A-002",
+      "stage": "CORE",
+      "priority": "P0",
+      "description": "Poster state is validated and shareable",
+      "observableAssertion": "A copied URL restores artwork, template, ratio, scale and focus; invalid values fall back safely",
+      "testMethod": "unit",
+      "viewport": "not-applicable",
+      "evidenceRequired": "poster state tests",
+      "status": "pending"
+    },
+    {
+      "id": "A-003",
+      "stage": "CORE",
+      "priority": "P0",
+      "description": "Canvas export is nonblank and correctly sized",
+      "observableAssertion": "Each ratio exports a PNG with the declared dimensions and nontransparent sampled pixels",
+      "testMethod": "playwright",
+      "viewport": "1440x900",
+      "evidenceRequired": "download and pixel assertion",
+      "status": "pending"
+    },
+    {
+      "id": "A-004",
+      "stage": "EXPERIENCE",
+      "priority": "P0",
+      "description": "Desktop studio keeps the complete task in one viewport",
+      "observableAssertion": "Search, poster preview and export action are visible without overlap at 1440x900",
+      "testMethod": "screenshot",
+      "viewport": "1440x900",
+      "evidenceRequired": "desktop screenshot",
+      "status": "pending"
+    },
+    {
+      "id": "A-005",
+      "stage": "EXPERIENCE",
+      "priority": "P0",
+      "description": "Mobile studio remains usable",
+      "observableAssertion": "The page has no horizontal overflow, search and poster are visible, and all controls are at least 44px",
+      "testMethod": "playwright",
+      "viewport": "390x844",
+      "evidenceRequired": "mobile screenshot and bounding boxes",
+      "status": "pending"
+    },
+    {
+      "id": "A-006",
+      "stage": "POLISH",
+      "priority": "P0",
+      "description": "Long artwork metadata stays inside the poster safe area",
+      "observableAssertion": "Long title and artist strings wrap or truncate without covering adjacent content",
+      "testMethod": "screenshot",
+      "viewport": "768x1024",
+      "evidenceRequired": "long-content screenshot",
+      "status": "pending"
+    },
+    {
+      "id": "A-007",
+      "stage": "EXPERIENCE",
+      "priority": "P0",
+      "description": "API failure has a usable fallback",
+      "observableAssertion": "A failed search shows an actionable error while curated artwork and the current poster remain available",
+      "testMethod": "playwright",
+      "viewport": "390x844",
+      "evidenceRequired": "failed-request screenshot",
+      "status": "pending"
+    },
+    {
+      "id": "A-008",
+      "stage": "POLISH",
+      "priority": "P1",
+      "description": "Share and download provide stable feedback",
+      "observableAssertion": "Native share or copy fallback and PNG download show status without resizing the toolbar",
+      "testMethod": "playwright",
+      "viewport": "1440x900",
+      "evidenceRequired": "share/download assertions",
+      "status": "pending"
+    },
+    {
+      "id": "A-009",
+      "stage": "VERIFY",
+      "priority": "P0",
+      "description": "Growth evidence is complete",
+      "observableAssertion": "Factory growth audit passes for metadata, robots, sitemap, manifest, structured data, social preview, share and analytics",
+      "testMethod": "audit",
+      "viewport": "not-applicable",
+      "evidenceRequired": "growth audit JSON",
+      "status": "pending"
+    },
+    {
+      "id": "A-010",
+      "stage": "VERIFY",
+      "priority": "P0",
+      "description": "No secrets or user data are tracked",
+      "observableAssertion": "Git and Factory audits find no env files, keys, uploaded images or personal data",
+      "testMethod": "audit",
+      "viewport": "not-applicable",
+      "evidenceRequired": "git audit",
+      "status": "pending"
+    },
+    {
+      "id": "A-011",
+      "stage": "VERIFY",
+      "priority": "P0",
+      "description": "Quality commands pass",
+      "observableAssertion": "Lint, TypeScript, unit tests and static production build return zero",
+      "testMethod": "integration",
+      "viewport": "not-applicable",
+      "evidenceRequired": "quality command output",
+      "status": "pending"
+    },
+    {
+      "id": "A-012",
+      "stage": "CANDIDATE",
+      "priority": "P1",
+      "description": "Release remains human gated and reversible",
+      "observableAssertion": "Candidate records commit, rollback tag, screenshots and deployment state before public release",
+      "testMethod": "manual",
+      "viewport": "not-applicable",
+      "evidenceRequired": "candidate report",
+      "status": "pending"
+    }
+  ],
+  "qualityCommands": [
+    "npm run check",
+    "npm test",
+    "npm run build"
+  ],
+  "dryRunRequired": true
+}

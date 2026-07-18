@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 2,
+  "product": "museum-art-poster",
+  "audience": "英语市场中搜索公共领域名画、艺术壁纸和可打印海报的用户",
+  "keywords": [
+    "museum poster maker",
+    "public domain art poster",
+    "art wallpaper maker",
+    "printable museum art",
+    "exhibition poster generator",
+    "free art poster maker"
+  ],
+  "acquisition": {
+    "primaryChannel": "organic-search",
+    "queryEvidence": "docs/DISTRIBUTION.md",
+    "launchChannels": [
+      "Google Search Console",
+      "Pinterest visual posts",
+      "public-domain art communities",
+      "DBL product cross-links"
+    ],
+    "paidTrafficGate": "disabled-until-positive-unit-economics"
+  },
+  "landingPages": [
+    {
+      "path": "/",
+      "keyword": "museum poster maker",
+      "intent": "搜索作品并直接生成海报",
+      "source": "src/app/page.tsx"
+    },
+    {
+      "path": "/guides/museum-poster-maker",
+      "keyword": "museum poster maker",
+      "intent": "了解怎样从公共领域艺术生成展览海报",
+      "source": "src/app/guides/[slug]/page.tsx"
+    },
+    {
+      "path": "/guides/art-wallpaper-maker",
+      "keyword": "art wallpaper maker",
+      "intent": "生成手机和社交媒体艺术壁纸",
+      "source": "src/app/guides/[slug]/page.tsx"
+    },
+    {
+      "path": "/artworks/the-great-wave",
+      "keyword": "great wave poster maker",
+      "intent": "从精选作品预设直接进入编辑器",
+      "source": "src/app/artworks/[slug]/page.tsx"
+    }
+  ],
+  "indexing": {
+    "metadata": "src/app/layout.tsx",
+    "robots": "src/app/robots.ts",
+    "sitemap": "src/app/sitemap.ts",
+    "manifest": "src/app/manifest.ts",
+    "structuredData": "src/platform/structured-data.tsx",
+    "socialPreview": "src/app/opengraph-image.png"
+  },
+  "sharing": {
+    "module": "src/platform/share.ts",
+    "urlState": "作品 ID、模板、画幅、缩放和焦点通过 Zod 校验后写入查询字符串",
+    "actions": ["copy-link", "native-share", "download"]
+  },
+  "measurement": {
+    "module": "src/platform/analytics.ts",
+    "events": [
+      "studio_viewed",
+      "artwork_selected",
+      "poster_rendered",
+      "poster_downloaded",
+      "poster_shared",
+      "print_export_interest"
+    ],
+    "kpis": {
+      "searchImpressions": "Search Console impressions for the six target keywords, reviewed weekly",
+      "organicClicks": "Organic landing-page clicks, target at least 50 in the first 14 days",
+      "taskSuccessRate": "poster_rendered / studio_viewed, target at least 35%",
+      "shareRate": "poster_shared / poster_rendered, target at least 10%",
+      "returnRate": "Returning visitors within 14 days, observation only for the first release",
+      "pageRpm": "Not applicable during paid-export hypothesis; record as USD 0",
+      "adRevenue": "Ads are disabled; record as USD 0"
+    }
+  },
+  "monetization": {
+    "strategy": "paid-export",
+    "stage": "hypothesis",
+    "policyReview": "docs/MONETIZATION.md",
+    "placementPlan": "docs/MONETIZATION.md",
+    "privacyPolicy": "docs/PRIVACY.md",
+    "termsPage": null,
+    "contactPage": null,
+    "consentImplementation": null,
+    "adsTxt": null,
+    "adModule": null,
+    "rules": [
+      "ads-after-primary-value",
+      "ads-distinct-from-actions",
+      "no-click-encouragement",
+      "no-paid-traffic-before-positive-unit-economics",
+      "no-ads-on-empty-or-error-states",
+      "consent-before-personalized-ads"
+    ]
+  },
+  "decision": {
+    "reviewAfterDays": 14,
+    "continueIf": [
+      "至少 25 次作品选择且选择后下载/分享率达到 25%",
+      "至少 5 次 print_export_interest，值得验证一次性付费导出"
+    ],
+    "pivotIf": [
+      "作品选择充足但分享率低于 5%，改进模板与默认构图而不是扩数据源",
+      "搜索流量主要落在壁纸任务，将 9:16 流程设为默认入口"
+    ],
+    "stopIf": [
+      "14 天少于 25 次有效作品选择",
+      "100 名访客少于 5 次下载或分享",
+      "公共领域字段或 IIIF 导出边界无法稳定验证"
+    ]
+  },
+  "createdAt": "2026-07-19T00:00:00Z"
+}

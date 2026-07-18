@@ -1,0 +1,13 @@
+{
+  "slug": "museum-art-poster",
+  "name": "Atelier Zero 开放馆藏海报工坊",
+  "mode": "pure",
+  "status": "building",
+  "platforms": ["web"],
+  "path": "C:\\Users\\Administrator\\Documents\\变成一个网站并部署\\products\\P3-museum-art-poster",
+  "github": null,
+  "webUrl": null,
+  "bundleId": null,
+  "createdAt": "2026-07-19T00:00:00Z",
+  "updatedAt": "2026-07-19T00:00:00Z"
+}

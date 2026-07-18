@@ -1,0 +1,110 @@
+{
+    "schemaVersion":  1,
+    "projectSlug":  "museum-art-poster",
+    "stage":  "CANDIDATE",
+    "iteration":  7,
+    "maxIterations":  {
+                          "INTAKE":  2,
+                          "DESIGN":  3,
+                          "SCAFFOLD":  2,
+                          "CORE":  4,
+                          "EXPERIENCE":  6,
+                          "POLISH":  4,
+                          "VERIFY":  3,
+                          "CANDIDATE":  1
+                      },
+    "completedGates":  [
+                           "contracts.valid",
+                           "design.prompt",
+                           "scaffold.audit",
+                           "core.tests",
+                           "experience.path",
+                           "visual.screenshots",
+                           "quality.all"
+                       ],
+    "failedChecks":  [
+
+                     ],
+    "evidence":  [
+                     {
+                         "kind":  "contracts",
+                         "path":  ".factory/product-contract.json",
+                         "status":  "pass"
+                     },
+                     {
+                         "kind":  "design",
+                         "path":  "DESIGN.md",
+                         "status":  "pass"
+                     },
+                     {
+                         "kind":  "core-tests",
+                         "path":  "tests/unit",
+                         "status":  "pass"
+                     },
+                     {
+                         "kind":  "experience-tests",
+                         "path":  "tests/e2e",
+                         "status":  "pass"
+                     },
+                     {
+                         "kind":  "visual-review",
+                         "path":  "reports/design-review-2026-07-19.md",
+                         "status":  "pass"
+                     },
+                     {
+                         "kind":  "quality",
+                         "path":  "reports/quality-verification-2026-07-19.md",
+                         "status":  "pass"
+                     }
+                 ],
+    "updatedAt":  "2026-07-18T19:19:34.6433934Z",
+    "history":  [
+                    {
+                        "stage":  "INTAKE",
+                        "at":  "2026-07-18T18:42:26.8976914Z",
+                        "note":  "initialized"
+                    },
+                    {
+                        "from":  "INTAKE",
+                        "to":  "DESIGN",
+                        "at":  "2026-07-18T19:08:46.5428399Z",
+                        "reason":  "advanced-after:contracts.valid"
+                    },
+                    {
+                        "from":  "DESIGN",
+                        "to":  "SCAFFOLD",
+                        "at":  "2026-07-18T19:08:46.5788713Z",
+                        "reason":  "advanced-after:design.prompt"
+                    },
+                    {
+                        "from":  "SCAFFOLD",
+                        "to":  "CORE",
+                        "at":  "2026-07-18T19:08:46.6088961Z",
+                        "reason":  "advanced-after:scaffold.audit"
+                    },
+                    {
+                        "from":  "CORE",
+                        "to":  "EXPERIENCE",
+                        "at":  "2026-07-18T19:08:46.6229071Z",
+                        "reason":  "advanced-after:core.tests"
+                    },
+                    {
+                        "from":  "EXPERIENCE",
+                        "to":  "POLISH",
+                        "at":  "2026-07-18T19:08:46.6359183Z",
+                        "reason":  "advanced-after:experience.path"
+                    },
+                    {
+                        "from":  "POLISH",
+                        "to":  "VERIFY",
+                        "at":  "2026-07-18T19:08:46.6484291Z",
+                        "reason":  "advanced-after:visual.screenshots"
+                    },
+                    {
+                        "from":  "VERIFY",
+                        "to":  "CANDIDATE",
+                        "at":  "2026-07-18T19:19:34.6433934Z",
+                        "reason":  "advanced-after:quality.all"
+                    }
+                ]
+}

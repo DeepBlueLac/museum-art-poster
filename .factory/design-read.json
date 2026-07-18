@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "productName": "Atelier Zero 开放馆藏海报工坊",
+  "pageType": "app-ui",
+  "targetUser": "希望快速获得设计完成品的艺术爱好者、家居用户和内容创作者",
+  "coreScenario": "搜索公共领域作品，在真实海报预览旁完成少量选择并立即导出",
+  "primaryInput": "作品、艺术家或主题搜索",
+  "primaryOutput": "有明确版权来源、可下载和分享的艺术海报",
+  "visualAnchor": {
+    "type": "result-preview",
+    "reason": "用户购买或分享的是成品构图，实时海报必须比表单更有视觉重量",
+    "evidence": "首屏在桌面与移动端都必须看到一张非空精选作品海报，搜索后无布局跳变"
+  },
+  "brandMemory": [
+    "像当代美术馆印刷工作台，而不是模板市场",
+    "纸白、墨黑、钴蓝与朱红形成可识别的编辑系统",
+    "ATELIER ZERO 字标和作品编号式信息条"
+  ],
+  "antiTemplateDirections": [
+    "不用紫蓝渐变、玻璃卡片、装饰性圆形图标或三列功能卡",
+    "不用 P1 的星空、电影字幕、Poppins、液态玻璃或 52/48 构图",
+    "不把所有区域做成圆角浮卡，不用大段营销口号挤占工具首屏"
+  ],
+  "firstViewport": {
+    "mustSee": "品牌、单一搜索框、精选作品入口、完整海报预览和一个明确下载操作",
+    "primaryAction": "搜索并选择作品",
+    "visualWeight": "桌面以海报预览为中心，左右是紧凑工具栏；移动端搜索后紧接海报预览"
+  },
+  "responsive": {
+    "desktop1440": "固定 288px 搜索栏、可伸缩预览舞台、304px 样式栏；画布稳定居中且不被面板覆盖",
+    "tablet768": "搜索与样式成为顶部双区，海报占主要宽度，操作不依赖 hover",
+    "mobile390": "56px 品牌栏、搜索、海报、横向样式控制依次排列；触控目标至少 44px，无横向页面溢出"
+  },
+  "states": [
+    "default",
+    "hover",
+    "focus-visible",
+    "active",
+    "disabled",
+    "loading",
+    "empty",
+    "success",
+    "error",
+    "offline-fallback"
+  ],
+  "screenshotAssertions": [
+    "1440×900 首屏同时显示搜索、完整海报和导出操作，文字不遮挡作品",
+    "390×844 首屏能看到搜索和海报主体，页面无横向滚动",
+    "选择长标题作品后标题自动换行且仍留在海报安全区",
+    "API 错误时精选作品与当前海报仍可使用",
+    "分享或下载完成后反馈不改变工具布局"
+  ]
+}

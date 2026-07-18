@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "slug": "museum-art-poster",
+  "name": "Atelier Zero 开放馆藏海报工坊",
+  "owner": "DBL",
+  "mode": "pure",
+  "user": {
+    "segment": "想把经典艺术变成壁纸或海报、但不会使用专业设计软件的英语用户",
+    "scenario": "用户知道一位艺术家、作品或主题，希望在一分钟内得到完成度高且版权边界清楚的视觉成品"
+  },
+  "task": {
+    "verb": "生成",
+    "description": "搜索一幅明确为公共领域的馆藏作品并生成可下载、可分享的排版海报",
+    "frequency": "occasional"
+  },
+  "primaryInput": {
+    "name": "作品、艺术家或主题关键词",
+    "type": "2-80 个字符的文本",
+    "constraints": "450ms 防抖、可取消旧请求、同一时间只有一个请求；只返回 is_public_domain=true 且有 image_id 的作品"
+  },
+  "primaryOutput": {
+    "name": "带作品信息和来源说明的艺术海报",
+    "format": "4:5、1:1 或 9:16 PNG，以及可恢复配置的分享链接",
+    "userAction": "下载 PNG、调用系统分享或复制链接"
+  },
+  "distribution": {
+    "keywords": [
+      "museum poster maker",
+      "public domain art poster",
+      "art wallpaper maker",
+      "printable museum art",
+      "exhibition poster generator",
+      "free art poster maker"
+    ],
+    "channels": [
+      "Google 长尾搜索",
+      "Pinterest 与 Instagram 视觉分享",
+      "设计社区与公共领域艺术社区",
+      "DBL 工具站完成态交叉推荐"
+    ]
+  },
+  "monetization": {
+    "strategy": "paid-export",
+    "paidSignal": "用户点击 4K、A4/A3 或无品牌导出的兴趣入口；首版不接真实支付"
+  },
+  "data": {
+    "sources": [
+      {
+        "name": "Art Institute of Chicago API + IIIF",
+        "license": "仅使用 API 标记为 public domain 的作品图像；公共领域图像可按馆方开放政策使用，产品保留作品、艺术家与馆藏来源说明",
+        "auth": "无 Key",
+        "cors": "API 与 IIIF 当前均允许浏览器跨域访问",
+        "quota": "搜索防抖且客户端全局限制为每秒最多一次请求；IIIF 使用馆方建议尺寸"
+      }
+    ],
+    "fallback": "API 不可用时保留精选作品目录与当前编辑状态，禁止白屏；导出失败时保留预览和复制链接"
+  },
+  "metrics": {
+    "success": [
+      "搜索成功用户中至少 35% 选择作品",
+      "选择作品用户中至少 25% 完成下载或分享",
+      "14 天内至少 10 次分享或下载"
+    ],
+    "conversionEvents": [
+      "artwork_selected",
+      "poster_rendered",
+      "poster_downloaded",
+      "poster_shared",
+      "print_export_interest"
+    ]
+  },
+  "stopConditions": [
+    {
+      "metric": "有效作品选择",
+      "threshold": "14 天内少于 25 次",
+      "windowDays": 14
+    },
+    {
+      "metric": "下载或分享",
+      "threshold": "100 名访客中少于 5 次",
+      "windowDays": 14
+    }
+  ],
+  "scope": {
+    "mvp": [
+      "搜索并只显示公共领域且有图像的芝加哥艺术博物馆作品",
+      "Exhibition、Full Bleed、Archive 三种完整构图",
+      "4:5、1:1、9:16 三种画幅与有限的缩放/焦点控制",
+      "Canvas 一致预览和 PNG 下载",
+      "系统分享、复制链接、少量精选作品与任务页"
+    ],
+    "nonGoals": [
+      "不聚合多个博物馆",
+      "不做自由图层、字体市场或通用 Canva 替代品",
+      "不上传用户图片，不使用 AI 滤镜",
+      "不做账户、云同步、打印履约或真实支付",
+      "不批量生成数万条低价值作品页面"
+    ]
+  },
+  "risk": "B",
+  "createdAt": "2026-07-19T00:00:00Z"
+}
